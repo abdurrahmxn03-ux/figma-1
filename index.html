@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KodeCamp Sign Up</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Playfair Display", Georgia, serif;
+      background: #f3f8fc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      display: flex;
+      width: 100%;
+      max-width: 1100px;
+      background: linear-gradient(135deg, #fefde9, #ffffff 70%);
+    }
+
+    
+    .form-side {
+      flex: 1.5;
+      padding: 30px 40px 40px;
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 34px;
+      font-weight: 700;
+      color: #7cc4f5;
+    }
+    h1 {
+      color: #2a7ab0;
+      font-size: 30px;
+      font-weight: 700;
+      margin: 60px 0 28px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 28px;
+    }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .full  { grid-column: 1 / -1; }
+
+    label, .label { font-size: 15px; color: #222; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid #9a9a9a;
+      border-radius: 3px;
+      background: #fff;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    textarea { height: 70px; padding: 10px 12px; resize: vertical; }
+    select { appearance: none; -webkit-appearance: none; cursor: pointer;
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #7cc4f5;
+      outline-offset: 1px;
+    }
+
+    .radios { display: flex; gap: 18px; align-items: center; height: 42px; }
+    .radios label { display: flex; align-items: center; gap: 6px; font-size: 15px; }
+    .radios input { accent-color: #1e9be0; width: 18px; height: 18px; }
+
+    button {
+      grid-column: 2;
+      margin-top: 14px;
+      height: 44px;
+      background: #7cc4f5;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #5bb2ee; }
+
+    
+    .image-side {
+      flex: 1;
+      position: relative;
+      min-height: 560px;
+      margin: 12px 0 12px 0;
+      background: linear-gradient(160deg, #5b7fa6, #24384f);
+      overflow: hidden;
+    }
+    .image-side img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .brand {
+      position: absolute;
+      top: 40px; right: 24px;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .tagline {
+      position: absolute;
+      bottom: 60px; left: 30px;
+      color: #fff;
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+
+    @media (max-width: 800px) {
+      .page { flex-direction: column-reverse; }
+      form { grid-template-columns: 1fr; }
+      button { grid-column: 1; }
+      .image-side { min-height: 300px; margin: 0; }
+      .form-side { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="form-side">
+      <span class="logo">K</span>
+      <h1>Sign Up</h1>
+
+      <form>
+        <div class="field">
+          <label for="first">First Name</label>
+          <input type="text" id="first" required>
+        </div>
+        <div class="field">
+          <label for="last">Last Name</label>
+          <input type="text" id="last" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="field">
+          <span class="label">Gender</span>
+          <div class="radios">
+            <label><input type="radio" name="gender" value="male" checked> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <div class="field">
+          <label for="confirm">Confirm Password</label>
+          <input type="password" id="confirm" required>
+        </div>
+
+        <div class="field">
+          <label for="edu">Educational Level</label>
+          <select id="edu">
+            <option value=""></option>
+            <option>High School</option>
+            <option>Diploma</option>
+            <option>Bachelor's</option>
+            <option>Master's</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="exp">Experience Level</label>
+          <select id="exp">
+            <option value=""></option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="about">Tell us about you</label>
+          <textarea id="about"></textarea>
+        </div>
+
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+
+    <div class="image-side">
+      
+      <img src="c:\Users\hp\Downloads\pexels-andres-ayrton-6578392 1.png" alt="Student working on a laptop" onerror="this.style.display='none'">
+      <span class="brand">KodeCamp</span>
+      <span class="tagline">JOIN OUR NEXT COHORT</span>
+    </div>
+
+  </div>
+</body>
+</html>
